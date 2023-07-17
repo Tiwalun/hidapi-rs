@@ -91,6 +91,12 @@ use std::sync::Mutex;
 
 pub use error::HidError;
 
+pub fn hid_exit() {
+    let _ = unsafe {
+        ffi::hid_exit()
+    };
+}
+
 #[cfg(hidapi)]
 use crate::hidapi::HidApiBackend;
 #[cfg(feature = "linux-native")]
